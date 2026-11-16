@@ -11,8 +11,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Arrange files
-        run: |
-          mkdir -p app/src/main/java/com/example/chesshelper [ -f app-build.gradle.kts ] && mv app-build.gradle.kts app/build.gradle.kts [ -f AndroidManifest.xml ] && mv AndroidManifest.xml app/src/main/AndroidManifest.xml for f in MainActivity CaptureService ChessAnalyzer; do [ -f $f.kt ] && mv $f.kt app/src/main/java/com/example/chesshelper/$f.kt done find . -path ./.git -prune -o -type f -print - uses: actions/setup-java@v4
+        run: mkdir -p app/src/main/java/com/example/chesshelper && mv app-build.gradle.kts app/build.gradle.kts && mv AndroidManifest.xml app/src/main/AndroidManifest.xml && mv *.kt app/src/main/java/com/example/chesshelper/
+
+      - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
